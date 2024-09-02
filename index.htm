@@ -74,7 +74,7 @@
             <button class="button operator" onclick="convertToFahrenheit()">T</button>
             <button class="button operator" onclick="convertirPeso()">P</button>
             <button class="button operator" onclick="convertirPresion()">PR</button>
-            <button class="button operator" onclick="convertirMoneda()"></button>
+            <button class="button operator" onclick="convertirMoneda()">M</button>
         </div>
     </div>
 
@@ -133,12 +133,6 @@
           updateDisplay();
       }
 
-      function convertirPeso() {
-          if (currentInput === '') return;
-          let result = parseFloat(currentInput) / 1000;
-          currentInput = result.toString();
-          updateDisplay();
-      }
 
       function convertirPresion() {
           if (currentInput === '') return;
@@ -148,7 +142,13 @@
           updateDisplay();
       }
 
-
+      function convertirMoneda() {
+          if (currentInput === '') return;
+          let cambioD = 0.00024; 
+          let result = parseFloat(currentInput) * cambioD;
+          currentInput = result.toFixed(2); 
+          updateDisplay();
+      }
 
         function clearDisplay() {
             currentInput = '';
